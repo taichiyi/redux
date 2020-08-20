@@ -35,6 +35,7 @@
     "types"
   ],
   "scripts": {
+    "git-push-origin": "git push origin v4.0.4-taichiyi",
     "clean": "rimraf lib dist es coverage types",
     "format": "prettier --write \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
     "format:check": "prettier --list-different \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
