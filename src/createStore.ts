@@ -251,7 +251,7 @@ export default function createStore<
     const listeners = (currentListeners = nextListeners)
     for (let i = 0; i < listeners.length; i++) {
       const listener = listeners[i]
-      listener()
+      /* ✨ 依次调用队列里的观察者 */listener()
     }
 
     return action

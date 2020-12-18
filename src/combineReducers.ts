@@ -136,7 +136,7 @@ export default function combineReducers<M extends ReducersMapObject>(
   CombinedState<StateFromReducersMapObject<M>>,
   ActionFromReducersMapObject<M>
 >
-export default function combineReducers(reducers: ReducersMapObject) {
+export default function /* ✨ 真正的函数 */combineReducers(reducers: ReducersMapObject) {
   const reducerKeys = Object.keys(reducers)
   const finalReducers: ReducersMapObject = {}
   for (let i = 0; i < reducerKeys.length; i++) {
@@ -200,10 +200,10 @@ export default function combineReducers(reducers: ReducersMapObject) {
         throw new Error(errorMessage)
       }
       nextState[key] = nextStateForKey
-      hasChanged = hasChanged || nextStateForKey !== previousStateForKey
+      hasChanged = hasChanged || /* ✨ 判断此状态是否有改变 */nextStateForKey !== previousStateForKey
     }
     hasChanged =
-      hasChanged || finalReducerKeys.length !== Object.keys(state).length
+      hasChanged || /* ✨ 判断此状态是否有改变 */finalReducerKeys.length !== Object.keys(state).length
     return hasChanged ? nextState : state
   }
 }
